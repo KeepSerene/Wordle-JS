@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Wordle World</title>
+  </head>
+
+  <body>
+    <!-- Splash screen -->
+    <header class="splash" data-splash-screen>
+      <h1 class="splash__title">VerbalVenture</h1>
+      <p class="splash__tagline">
+        Bet Big on Your Lexicon! Guess the 5-letter word in 6 tries!
+      </p>
+      <button type="submit" class="splash__btn" data-splash-btn>
+        Verbally Venture
+      </button>
+    </header>
+
+    <main>
+      <!-- Alert -->
+      <div class="alert-container" data-alert-container></div>
+
+      <!-- Guess grid -->
+      <section class="guess-grid" data-guess-grid>
+        <h2 class="visually-hidden">
+          Get 6 chances to guess the correct 5-letter word
+        </h2>
+
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </section>
+
+      <!-- Keyboard -->
+      <section class="keyboard" data-keyboard>
+        <h2 class="visually-hidden">Keyboard</h2>
+
+        <button type="submit" class="key" data-key="Q">Q</button>
+        <button type="submit" class="key" data-key="W">W</button>
+        <button type="submit" class="key" data-key="E">E</button>
+        <button type="submit" class="key" data-key="R">R</button>
+        <button type="submit" class="key" data-key="T">T</button>
+        <button type="submit" class="key" data-key="Y">Y</button>
+        <button type="submit" class="key" data-key="U">U</button>
+        <button type="submit" class="key" data-key="I">I</button>
+        <button type="submit" class="key" data-key="O">O</button>
+        <button type="submit" class="key" data-key="P">P</button>
+
+        <div class="space"></div>
+
+        <button type="submit" class="key" data-key="A">A</button>
+        <button type="submit" class="key" data-key="S">S</button>
+        <button type="submit" class="key" data-key="D">D</button>
+        <button type="submit" class="key" data-key="F">F</button>
+        <button type="submit" class="key" data-key="G">G</button>
+        <button type="submit" class="key" data-key="H">H</button>
+        <button type="submit" class="key" data-key="J">J</button>
+        <button type="submit" class="key" data-key="K">K</button>
+        <button type="submit" class="key" data-key="L">L</button>
+
+        <div class="space"></div>
+
+        <button type="submit" class="key lg-key" data-enter>Enter</button>
+        <button type="submit" class="key" data-key="Z">Z</button>
+        <button type="submit" class="key" data-key="X">X</button>
+        <button type="submit" class="key" data-key="C">C</button>
+        <button type="submit" class="key" data-key="V">V</button>
+        <button type="submit" class="key" data-key="B">B</button>
+        <button type="submit" class="key" data-key="N">N</button>
+        <button type="submit" class="key" data-key="M">M</button>
+        <button type="submit" class="key lg-key" data-delete>
+          <i class="fa-solid fa-delete-left"></i>
+        </button>
+      </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

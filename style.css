@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  color-scheme: dark;
+  font-size: 100%;
+}
+
+body {
+  background-color: hsl(240, 3%, 7%);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+
+/* Header/Splash screen styles */
+.splash {
+  position: fixed;
+  inset: 0;
+
+  background-color: hsla(240, 3%, 7%, 0.9);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.splash__tagline {
+  margin-bottom: 2.25rem;
+}
+
+.splash__btn {
+  background-color: transparent;
+  font: inherit;
+  font-weight: 600;
+  border: 2px solid #fff;
+  border-radius: 500px;
+  padding: 0.7em 2em;
+  cursor: pointer;
+
+  transition: transform 150ms ease-in-out;
+}
+
+.splash__btn:is(:hover, :focus) {
+  transform: scale(1.02);
+}
+
+/* Dynamic class */
+.hidden {
+  display: none;
+}
+
+/* Main styles */
+main {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1em;
+}
+
+/* Alert styles */
+.alert-container {
+  position: fixed;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dynamic styles */
+.alert {
+  background-color: hsl(204, 7%, 85%);
+  color: #000;
+  font-weight: 600;
+  border-radius: 0.25em;
+  padding: 0.75em;
+  margin-bottom: 0.5em;
+
+  pointer-events: none;
+
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.alert:last-child {
+  margin-bottom: 0;
+}
+
+.alert.hide {
+  opacity: 0;
+}
+
+/* Guess grid styles */
+.guess-grid {
+  flex-grow: 1;
+
+  display: grid;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(6, 4em);
+  justify-content: center;
+  align-content: center;
+  gap: 0.25em;
+
+  margin-bottom: 1em;
+}
+
+.tile {
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0.05em solid hsl(240, 2%, 23%);
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 250ms linear;
+}
+
+/* Dynamic guess-grid styles */
+.tile[data-state="active"] {
+  border-color: hsl(200, 1%, 34%);
+}
+
+.tile[data-state="wrong"] {
+  background-color: hsl(240, 2%, 23%);
+}
+
+.tile[data-state="wrong-location"] {
+  background-color: hsl(49, 51%, 47%);
+}
+
+.tile[data-state="correct"] {
+  background-color: hsl(115, 29%, 43%);
+}
+
+.tile.shake {
+  animation: shake 250ms ease-in-out;
+}
+
+@keyframes shake {
+  10% {
+    transform: translateX(-5%);
+  }
+
+  30% {
+    transform: translateX(5%);
+  }
+
+  50% {
+    transform: translateX(-7.5%);
+  }
+
+  70% {
+    transform: translateX(7.5%);
+  }
+
+  90% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tile.flip {
+  transform: rotateX(90deg);
+}
+
+.tile.dance {
+  animation: dance 500ms ease-in-out;
+}
+
+@keyframes dance {
+  20% {
+    transform: translateY(-50%);
+  }
+
+  40% {
+    transform: translateY(5%);
+  }
+
+  60% {
+    transform: translateY(-25%);
+  }
+
+  80% {
+    transform: translateY(2.5%);
+  }
+
+  90% {
+    transform: translateY(-5%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* Keyboard styles */
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(auto, 1.25em));
+  grid-auto-rows: 3em;
+  justify-content: center;
+  gap: 0.25em;
+}
+
+.key {
+  grid-column: span 2;
+
+  background-color: hsl(
+    var(--hue, 200),
+    var(--saturation, 1%),
+    calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
+  );
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key[data-delete] {
+  font-size: 1.35em;
+}
+
+.key[data-delete] i {
+  pointer-events: none;
+}
+
+.key:is(:hover, :focus) {
+  --lightness-offset: 10%;
+}
+
+/* Dynamic keyboard styles */
+.key.wrong {
+  --lightness: 23%;
+}
+
+.key.wrong-location {
+  --hue: 49;
+  --saturation: 51%;
+  --lightness: 47%;
+}
+
+.key.correct {
+  --hue: 115;
+  --saturation: 29%;
+  --lightness: 43%;
+}
+
+/* Utilities */
+.visually-hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  position: absolute;
+  top: auto;
+  left: -10000px;
+}
+
+.lg-key {
+  grid-column: span 3;
+}
